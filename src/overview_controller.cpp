@@ -2331,25 +2331,27 @@ OverviewController::~OverviewController() {
     setAnimationsEnabledOverride(false);
     restoreWrappedDispatchers();
     deactivateHooks();
+    
     // Disconnect all signal listeners to prevent memory leaks
-    m_renderStageListener.disconnect();
-    m_mouseMoveListener.disconnect();
-    m_mouseButtonListener.disconnect();
-    m_mouseAxisListener.disconnect();
-    m_touchDownListener.disconnect();
-    m_touchMotionListener.disconnect();
-    m_touchUpListener.disconnect();
-    m_touchCancelListener.disconnect();
-    m_keyboardListener.disconnect();
-    m_windowOpenListener.disconnect();
-    m_windowDestroyListener.disconnect();
-    m_windowCloseListener.disconnect();
-    m_windowActiveListener.disconnect();
-    m_windowMoveWorkspaceListener.disconnect();
-    m_workspaceActiveListener.disconnect();
-    m_monitorRemovedListener.disconnect();
-    m_monitorFocusedListener.disconnect();
-    m_configReloadedListener.disconnect();
+    m_renderStageListener.reset();
+    m_mouseMoveListener.reset();
+    m_mouseButtonListener.reset();
+    m_mouseAxisListener.reset();
+    m_touchDownListener.reset();
+    m_touchMotionListener.reset();
+    m_touchUpListener.reset();
+    m_touchCancelListener.reset();
+    m_keyboardListener.reset();
+    m_windowOpenListener.reset();
+    m_windowDestroyListener.reset();
+    m_windowCloseListener.reset();
+    m_windowActiveListener.reset();
+    m_windowMoveWorkspaceListener.reset();
+    m_workspaceActiveListener.reset();
+    m_monitorRemovedListener.reset();
+    m_monitorFocusedListener.reset();
+    m_configReloadedListener.reset();
+    
     if (m_workspaceSwipeBeginFunctionHook)
         m_workspaceSwipeBeginFunctionHook->unhook();
     if (m_workspaceSwipeUpdateFunctionHook)
